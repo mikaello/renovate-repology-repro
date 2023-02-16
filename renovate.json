@@ -1,7 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "regexManagers:dockerfileVersions"
+  "extends": ["config:base", "regexManagers:dockerfileVersions"],
+  "regexManagers": [
+    {
+      "fileMatch": [".*"],
+      "matchStrings": [
+        "renovate:\\s+datasource=(?<datasource>\\S+?) depName=(?<depName>\\S+?)( versioning=(?<versioning>\\S+?))?( registryUrl=(?<registryUrl>\\S+?))?\\s+(\\S+?_)?(VERSION|version|TAG|tag)\\s*[?]?[=:]\\s*(?<currentValue>\\S+)"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
   ]
 }
