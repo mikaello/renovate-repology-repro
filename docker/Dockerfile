@@ -1,7 +1,7 @@
 FROM nginx
 
 # renovate: datasource=repology depName=homebrew/vault
-ENV VAULT_HOMEBREW_VERSION=1.0.0
+ENV VAULT_HOMEBREW_VERSION=1.14.4
 
 # renovate: datasource=repology depName=scoop/vault
 ARG VAULT_SCOOP_VERSION=1.0.0
